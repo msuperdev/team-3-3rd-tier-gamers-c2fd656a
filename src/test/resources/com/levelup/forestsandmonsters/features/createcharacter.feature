@@ -13,4 +13,6 @@ Scenario Outline:: Set character name
         | characterNameInput | characterNameOutput |
         | "Erin"          | "Erin"           |
         | ""              | "Character"         |
+        | "Graham" | "Graham" |
+        | "Madhu" | "Madhu" |
 
