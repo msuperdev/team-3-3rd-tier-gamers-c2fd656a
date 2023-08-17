@@ -1,7 +1,9 @@
 package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,18 +15,13 @@ public class GameMapTest {
 
     @Before
     public void setup() {
-        testGameMap= new GameMap();
+        testGameMap = new GameMap();
     }
 
     @Test
     public void testGameMapCreate() {
         assertNotNull("Map should not be null", testGameMap);
-        assertEquals("numPositions value after creation", 100, testGameMap.getPositions());
-    }
-
-    @Test
-    public void getPositions() {
-        assertEquals("Should have 100 positions", 100, testGameMap.getPositions(), testGameMap.getPositions() - 100);
+        assertEquals("numPositions value after creation", 100, testGameMap.getTotalPositions());
     }
 
     @Test
@@ -44,5 +41,23 @@ public class GameMapTest {
         Position result01E = testGameMap.calculatePosition(startPos01, DIRECTION.WEST);
         assertEquals("0,1 W => 1,9", 0, result01E.getX());
         assertEquals("0,1 W => 1,9", 1, result01E.getY());
+    }
+
+    @Test
+    public void isPositionValid() {
+        Position pos1 = new Position(0, 1);
+        assertTrue("0,1", testGameMap.isPositionValid(pos1));
+        Position pos2 = new Position(0, 10);
+        assertFalse("0,10", testGameMap.isPositionValid(pos2));
+        Position pos3 = new Position(10, 10);
+        assertFalse("10,10", testGameMap.isPositionValid(pos3));
+        Position pos4 = new Position(10, 0);
+        assertFalse("10,0", testGameMap.isPositionValid(pos4));
+    }
+
+    @Test
+    public void getTotalPositions() {
+        assertEquals("Should have 100 positions", 100, testGameMap.getTotalPositions(),
+                testGameMap.getTotalPositions() - 100);
     }
 }
