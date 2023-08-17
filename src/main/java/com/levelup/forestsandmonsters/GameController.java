@@ -38,6 +38,9 @@ public class GameController {
     public void startGame() {
         // TODO: Implement startGame - Should probably create tiles and put the character
         // on them?
+        GameMap gmap = new GameMap();
+        
+        //Position curposition = new Position(0,0);
         // TODO: Should also update the game results?
     }
 
