@@ -15,4 +15,10 @@ Scenario Outline:: Set character name
         | ""              | "Character"         |
         | "Graham" | "Graham" |
         | "Madhu" | "Madhu" |
+        | "AJ" | "AJ" |
+        | "Purna" | "Purna" |
+        | "Regina" | "Regina" |
+        | "Lavanya" | "Lavanya" |
+        | "Terron" | "Terron" |
+        
 
