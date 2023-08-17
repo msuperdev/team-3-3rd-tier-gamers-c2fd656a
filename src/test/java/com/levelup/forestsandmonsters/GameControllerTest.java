@@ -10,4 +10,11 @@ public class GameControllerTest {
         assertNotNull(testObj.status);
     }
 
+   @Test
+    public void CreatesCharacterResults() {
+        GameController testObj = new GameController();
+        testObj.createCharacter("Purna");
+        assertNotNull(testObj.status);
+    }
+
 }
