@@ -3,6 +3,7 @@ package com.levelup.forestsandmonsters;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Point;
 
@@ -51,8 +52,10 @@ public class GameControllerTest {
        // testObj.setCharacterPosition(0,0);
      //  testObj.setCharacterPosition( new Point (0,0) );
      //  assertNotNull(testObj.status.currentPosition);
-        testObj.setCharacterPosition(new Point (10,10) );
-        assertNotNull(testObj.status.currentPosition);
+      //  testObj.setCharacterPosition(new Point (10,10) );
+      boolean validPos;
+      validPos =  testObj.gameMap.isPositionValid(new Point (0, 0) );
+        assertTrue(validPos);
     }
 
 }
