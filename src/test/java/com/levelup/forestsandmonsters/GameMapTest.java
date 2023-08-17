@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.awt.Point;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,13 +24,6 @@ public class GameMapTest {
     public void testGameMapCreate() {
         assertNotNull("Map should not be null", testGameMap);
         assertEquals("numPositions value after creation", 100, testGameMap.getTotalPositions());
-    }
-
-    @Test
-    public void calcPosition_EnterMap() {
-        Position startPos = testGameMap.calculatePosition(null, null);
-        assertNotNull("Enter at null", startPos);
-        assertTrue("Valid entry", testGameMap.isPositionValid(startPos));
     }
 
     @Test
@@ -52,13 +47,13 @@ public class GameMapTest {
 
     @Test
     public void isPositionValid() {
-        Position pos1 = new Position(0, 1);
+        Point pos1 = new Point(0, 1);
         assertTrue("0,1", testGameMap.isPositionValid(pos1));
-        Position pos2 = new Position(0, 10);
+        Point pos2 = new Point(0, 10);
         assertFalse("0,10", testGameMap.isPositionValid(pos2));
-        Position pos3 = new Position(10, 10);
+        Point pos3 = new Point(10, 10);
         assertFalse("10,10", testGameMap.isPositionValid(pos3));
-        Position pos4 = new Position(10, 0);
+        Point pos4 = new Point(10, 0);
         assertFalse("10,0", testGameMap.isPositionValid(pos4));
     }
 
