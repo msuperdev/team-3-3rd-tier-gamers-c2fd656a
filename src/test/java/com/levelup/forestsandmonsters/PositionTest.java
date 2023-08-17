@@ -13,7 +13,7 @@ public class PositionTest {
         int x = 0;
         int y = 0;
         testObj = new Position(x, y);
-        assertNotNull("Position should not be nulll", testObj);
+        assertNotNull("Position should not be null", testObj);
         assertEquals("X value after creation", x, testObj.getX());
         assertEquals("Y value after creation", y, testObj.getY());
     }
