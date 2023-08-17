@@ -41,6 +41,7 @@ public class GameController {
         // on them?
          this.gameMap = new GameMap();
 
+
         //Position curposition = new Position(0,0);
         // TODO: Should also update the game results?
     }
@@ -56,6 +57,9 @@ public class GameController {
 
     public void setCharacterPosition(Point coordinates) {
         // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+       // Boolean validPosition = this.gameMap.isPositionValid(new coordinates);
+        status.currentPosition = coordinates;
+        
     }
 
     public void setCurrentMoveCount(int moveCount) {
