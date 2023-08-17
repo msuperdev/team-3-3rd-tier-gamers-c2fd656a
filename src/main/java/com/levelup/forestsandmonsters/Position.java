@@ -1,18 +1,18 @@
 package com.levelup.forestsandmonsters;
 
-public class Position {
-    int x;
-    int y;
+import java.awt.Point;
 
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
+public class Position {
+    Point coordinates;
+
+    public Position(int xCoordinates, int yCoordinates) {
+        this.coordinates = new Point(xCoordinates, yCoordinates);
     }
 
     public int getX() {
-        return x;
+        return coordinates.x;
     }
     public int getY() {
-        return y;
+        return coordinates.y;
     }
 }

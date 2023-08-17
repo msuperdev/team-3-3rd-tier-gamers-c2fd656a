@@ -3,6 +3,8 @@ package com.levelup.forestsandmonsters;
 import com.levelup.forestsandmonsters.GameController.DIRECTION;
 import static com.levelup.forestsandmonsters.GameController.DIRECTION.*;
 
+import java.awt.Point;
+
 public class GameMap {
     static final int DEFAULT_POSITIONS = 100;
     int numPositions;
@@ -15,16 +17,16 @@ public class GameMap {
         Position newPosition = new Position(startingPosition.getX(), startingPosition.getY());
 
         if (direction == NORTH) {
-            newPosition.y++;
+            newPosition = new Position(startingPosition.getX(),startingPosition.getY()+1);
 
         } else if (direction == SOUTH) {
-            newPosition.y--;
+            newPosition = new Position(startingPosition.getX(),startingPosition.getY()-1);
 
         } else if (direction == EAST) {
-            newPosition.x++;
+            newPosition = new Position(startingPosition.getX()+1,startingPosition.getY());
 
         } else if (direction == WEST) {
-            newPosition.x--;
+            newPosition = new Position(startingPosition.getX()-1,startingPosition.getY());
         }
 
         if (isPositionValid(newPosition) == true) {
