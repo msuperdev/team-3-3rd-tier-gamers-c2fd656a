@@ -15,6 +15,7 @@ public class GameController {
     }
 
     GameStatus status;
+    GameMap gameMap;
 
     public GameController() {
         status = new GameStatus();
@@ -38,8 +39,8 @@ public class GameController {
     public void startGame() {
         // TODO: Implement startGame - Should probably create tiles and put the character
         // on them?
-        GameMap gmap = new GameMap();
-        
+         this.gameMap = new GameMap();
+
         //Position curposition = new Position(0,0);
         // TODO: Should also update the game results?
     }
@@ -64,7 +65,7 @@ public class GameController {
     public int getTotalPositions() {
         // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
         // testable
-        return -10;
+        return this.gameMap.getTotalPositions();
     }
 
 }

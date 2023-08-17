@@ -1,6 +1,7 @@
 package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
@@ -32,7 +33,10 @@ public class GameControllerTest {
     public void CheckstartGame() {
         GameController testObj = new GameController();
         testObj.startGame();
-       // assertEquals(100, testObj.getTotalPositions());
+        //assertEquals(100, testObj.getTotalPositions(), 100 - testObj.getTotalPositions());
+        System.out.println("Positions " + testObj.getTotalPositions());
+              assertEquals("Should be 100", 100, testObj.getTotalPositions());
+               assertNotEquals("Should be 100", 10, testObj.getTotalPositions());
 //        assertNotNull(testObj.status);
 
     }
