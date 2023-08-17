@@ -37,11 +37,11 @@ public class GameMap {
     }
 
     public boolean isPositionValid(Position p){
-        return true;
+        return p.getX() >= 0 && p.getX() <= 9 && p.getY() >= 0 && p.getY() <= 9;
     }
 
     public int getTotalPositions(){
-        return 1;
+        return numPositions;
     }
 
 }
