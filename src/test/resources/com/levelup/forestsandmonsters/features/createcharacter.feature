@@ -20,5 +20,4 @@ Scenario Outline:: Set character name
         | "Regina" | "Regina" |
         | "Lavanya" | "Lavanya" |
         | "Terron" | "Terron" |
-        
 
