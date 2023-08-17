@@ -25,6 +25,13 @@ public class GameMapTest {
     }
 
     @Test
+    public void calcPosition_EnterMap() {
+        Position startPos = testGameMap.calculatePosition(null, null);
+        assertNotNull("Enter at null", startPos);
+        assertTrue("Valid entry", testGameMap.isPositionValid(startPos));
+    }
+
+    @Test
     public void calculatePosition() {
         Position startPos00 = new Position(0, 0);
         Position result00N = testGameMap.calculatePosition(startPos00, DIRECTION.NORTH);

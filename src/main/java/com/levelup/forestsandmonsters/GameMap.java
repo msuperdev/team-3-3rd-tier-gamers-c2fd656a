@@ -7,6 +7,7 @@ import java.awt.Point;
 
 public class GameMap {
     static final int DEFAULT_POSITIONS = 100;
+    static final Position DEFAULT_START_POSITION = new Position(0,0);
     int numPositions;
 
     public GameMap() {
@@ -14,19 +15,24 @@ public class GameMap {
     }
 
     public Position calculatePosition(Position startingPosition, DIRECTION direction) {
-        Position newPosition = new Position(startingPosition.getX(), startingPosition.getY());
+
+        Position newPosition = startingPosition;
+
+        if (startingPosition == null) {
+            newPosition = DEFAULT_START_POSITION;
+        }
 
         if (direction == NORTH) {
-            newPosition = new Position(startingPosition.getX(),startingPosition.getY()+1);
+            newPosition = new Position(newPosition.getX(),newPosition.getY()+1);
 
         } else if (direction == SOUTH) {
-            newPosition = new Position(startingPosition.getX(),startingPosition.getY()-1);
+            newPosition = new Position(newPosition.getX(),newPosition.getY()-1);
 
         } else if (direction == EAST) {
-            newPosition = new Position(startingPosition.getX()+1,startingPosition.getY());
+            newPosition = new Position(newPosition.getX()+1,newPosition.getY());
 
         } else if (direction == WEST) {
-            newPosition = new Position(startingPosition.getX()-1,startingPosition.getY());
+            newPosition = new Position(newPosition.getX()-1,newPosition.getY());
         }
 
         if (isPositionValid(newPosition) == true) {
