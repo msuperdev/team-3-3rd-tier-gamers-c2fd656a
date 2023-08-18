@@ -1,7 +1,8 @@
 package com.levelup.forestsandmonsters;
 
 import java.awt.Point;
-import com.levelup.forestsandmonsters.GameController.DIRECTION;
+
+import javax.print.attribute.standard.PagesPerMinute;
 
 public class GameController {
 
@@ -11,12 +12,13 @@ public class GameController {
         // TODO: Add other status data
         public String characterName = DEFAULT_CHARACTER_NAME;
         public Point currentPosition = null;
-        // TODO: Write a failing unit test that will force you to set this to the right number
-        public int moveCount = -100;
+        // number
+        public int moveCount = 0;
     }
 
     GameStatus status;
     GameMap gameMap;
+    Character character;
 
     public GameController() {
         status = new GameStatus();
@@ -35,15 +37,16 @@ public class GameController {
         } else {
             status.characterName = DEFAULT_CHARACTER_NAME;
         }
+        this.character = new Character(name);
     }
 
     public void startGame() {
-        // TODO: Implement startGame - Should probably create tiles and put the character
+        // TODO: Implement startGame - Should probably create tiles and put the
+        // character
         // on them?
-         this.gameMap = new GameMap();
-
-
-        //Position curposition = new Position(0,0);
+        this.gameMap = new GameMap();
+        this.setCharacterPosition(new Point(0, 0));
+        // Position curposition = new Position(0,0);
         // TODO: Should also update the game results?
     }
 
@@ -54,13 +57,18 @@ public class GameController {
     public void move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
+        character.move(directionToMove);
+        status.moveCount++;
+        status.currentPosition = character.getPosition().coordinates;
     }
 
     public void setCharacterPosition(Point coordinates) {
-        // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
-       // Boolean validPosition = this.gameMap.isPositionValid(new coordinates);
+        // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be
+        // testable
+        // Boolean validPosition = this.gameMap.isPositionValid(new coordinates);
         status.currentPosition = coordinates;
-        
+        gameMap.calculatePosition(new Position(coordinates.x, coordinates.y), null);
+        character.enterMap(gameMap);
     }
 
     public void setCurrentMoveCount(int moveCount) {
