@@ -22,8 +22,8 @@ public class Character {
   }
 
 
-  public void enterMap(GameMap map) {
-    this.map = map;
+  public void enterMap(GameMap map123) {
+    this.map = new GameMap();
     this.position = map.calculatePosition(null, null);
   }
 

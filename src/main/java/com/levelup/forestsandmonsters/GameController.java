@@ -17,8 +17,8 @@ public class GameController {
     }
 
     GameStatus status;
-    GameMap gameMap;
-    Character character;
+    GameMap gameMap = new GameMap();
+    Character character = new Character();
 
     public GameController() {
         status = new GameStatus();
@@ -66,13 +66,16 @@ public class GameController {
         // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be
         // testable
         // Boolean validPosition = this.gameMap.isPositionValid(new coordinates);
+        // this.gameMap = character.;
         status.currentPosition = coordinates;
-        gameMap.calculatePosition(new Position(coordinates.x, coordinates.y), null);
+        //gameMap.calculatePosition(new Position(coordinates.x, coordinates.y), null);
         character.enterMap(gameMap);
+        character.position = gameMap.calculatePosition(new Position(coordinates.x, coordinates.y), null);
     }
 
     public void setCurrentMoveCount(int moveCount) {
         // TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
+        status.moveCount = moveCount;
     }
 
     public int getTotalPositions() {
