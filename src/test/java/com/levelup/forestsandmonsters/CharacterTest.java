@@ -15,7 +15,7 @@ public class CharacterTest {
 
         Character chars=new Character();
        chars.getname();
-        assertEquals("charator", chars.getname());
+        assertEquals("Character", chars.getname());
        
        //this.characterName = characterName
     }

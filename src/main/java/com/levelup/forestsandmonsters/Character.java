@@ -4,7 +4,7 @@ import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
 public class Character {
 
-  static final String DEFAULT_NAME = "charator";
+  static final String DEFAULT_NAME = "Character";
   String name;
   Position position;
   GameMap map;
@@ -24,7 +24,7 @@ public class Character {
 
   public void enterMap(GameMap map) {
     this.map = map;
-    map.calculatePosition(null, null);
+    this.position = map.calculatePosition(null, null);
   }
 
   public Position getPosition() {
@@ -32,7 +32,8 @@ public class Character {
   }
 
   public void move(DIRECTION direction) {
-    position=map.calculatePosition(position, direction);
-
+    Position cPos = getPosition();
+    Position newPos = map.calculatePosition(cPos, direction);
+    this.position = newPos;
   }
 }
