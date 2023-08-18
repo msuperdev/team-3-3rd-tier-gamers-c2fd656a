@@ -2,7 +2,6 @@ package com.levelup.forestsandmonsters;
 
 import java.awt.Point;
 
-
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
@@ -11,6 +10,14 @@ public class GameController {
         public String characterName = DEFAULT_CHARACTER_NAME;
         public Point currentPosition = null;
         public int moveCount = 0;
+
+        public String toString() {
+            return "Character Name: " + characterName +
+                    "\nStarting Position: (" + GameMap.DEFAULT_START_POSITION.getX() + ","
+                    + GameMap.DEFAULT_START_POSITION.getY() + ")" +
+                    "\nCurrent Position: (" + currentPosition.x + "," + currentPosition.y + ")" +
+                    "\nMove count " + moveCount;
+        }
     }
 
     GameStatus status;
@@ -36,7 +43,7 @@ public class GameController {
 
     public void startGame() {
         this.gameMap = new GameMap();
-        this.setCharacterPosition(new Point(0, 0));
+        this.setCharacterPosition(GameMap.DEFAULT_START_POSITION.coordinates);
     }
 
     public GameStatus getStatus() {
@@ -47,6 +54,7 @@ public class GameController {
         character.move(directionToMove);
         status.moveCount++;
         status.currentPosition = character.getPosition().coordinates;
+        System.out.println(status);
     }
 
     public void setCharacterPosition(Point coordinates) {
