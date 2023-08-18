@@ -42,8 +42,8 @@ public class GameMap {
 
     }
 
-    public boolean isPositionValid(Point p) {
-        return p.getX() >= 0 && p.getX() <= 9 && p.getY() >= 0 && p.getY() <= 9;
+    public boolean isPositionValid(Point pointToValidate) {
+        return pointToValidate.getX() >= 0 && pointToValidate.getX() <= 9 && pointToValidate.getY() >= 0 && pointToValidate.getY() <= 9;
     }
 
     public int getTotalPositions() {
